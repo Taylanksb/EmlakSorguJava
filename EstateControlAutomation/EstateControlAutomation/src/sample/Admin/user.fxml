@@ -1,0 +1,121 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.ComboBox?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.Tab?>
+<?import javafx.scene.control.TabPane?>
+<?import javafx.scene.control.TableColumn?>
+<?import javafx.scene.control.TableView?>
+<?import javafx.scene.control.TextArea?>
+<?import javafx.scene.control.TextField?>
+<?import javafx.scene.image.ImageView?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.text.Font?>
+
+<TabPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="600.0" prefWidth="800.0" tabClosingPolicy="UNAVAILABLE" xmlns="http://javafx.com/javafx/16" xmlns:fx="http://javafx.com/fxml/1" fx:controller="sample.Admin.UserController">
+  <tabs>
+    <Tab text="Ev Ekle">
+      <content>
+        <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="180.0" prefWidth="200.0">
+               <children>
+                  <Label layoutX="43.0" layoutY="34.0" prefHeight="18.0" prefWidth="23.0" text="İl" />
+                  <Label layoutX="43.0" layoutY="82.0" prefHeight="18.0" prefWidth="23.0" text="İlçe," />
+                  <ComboBox fx:id="citySelectorCombo" layoutX="76.0" layoutY="31.0" prefHeight="26.0" prefWidth="130.0" promptText="Şehir Seçiniz" />
+                  <Label layoutX="223.0" layoutY="34.0" prefHeight="18.0" prefWidth="34.0" text="Adres" />
+                  <TextArea fx:id="adressTextArea" layoutX="266.0" layoutY="32.0" prefHeight="126.0" prefWidth="203.0" />
+                  <TextField fx:id="volumeText" layoutX="32.0" layoutY="357.0" prefHeight="26.0" prefWidth="110.0" />
+                  <TextField fx:id="roomCountText" layoutX="175.0" layoutY="357.0" prefHeight="26.0" prefWidth="110.0" />
+                  <ComboBox fx:id="yearCombo" layoutX="520.0" layoutY="357.0" prefHeight="26.0" prefWidth="98.0" />
+                  <ComboBox fx:id="typeCombo" layoutX="84.0" layoutY="468.0" prefHeight="26.0" prefWidth="98.0" />
+                  <TextField fx:id="priceText" layoutX="338.0" layoutY="468.0" prefHeight="26.0" prefWidth="110.0" />
+                  <Label layoutX="47.0" layoutY="300.0" prefHeight="27.0" prefWidth="79.0" text="Brüt Alan">
+                     <font>
+                        <Font size="18.0" />
+                     </font>
+                  </Label>
+                  <Label layoutX="190.0" layoutY="300.0" prefHeight="27.0" prefWidth="88.0" text="Oda Sayısı">
+                     <font>
+                        <Font size="18.0" />
+                     </font>
+                  </Label>
+                  <Label layoutX="364.0" layoutY="300.0" prefHeight="27.0" prefWidth="58.0" text="Isınma">
+                     <font>
+                        <Font size="18.0" />
+                     </font>
+                  </Label>
+                  <ComboBox fx:id="heatingCombo" layoutX="344.0" layoutY="357.0" prefHeight="26.0" prefWidth="98.0" />
+                  <Label layoutX="550.0" layoutY="300.0" prefHeight="27.0" prefWidth="38.0" text="Yaşı">
+                     <font>
+                        <Font size="18.0" />
+                     </font>
+                  </Label>
+                  <Label layoutX="97.0" layoutY="424.0" prefHeight="27.0" prefWidth="71.0" text="İlan Türü">
+                     <font>
+                        <Font size="18.0" />
+                     </font>
+                  </Label>
+                  <Label layoutX="372.0" layoutY="411.0" prefHeight="27.0" prefWidth="41.0" text="Fiyat">
+                     <font>
+                        <Font size="18.0" />
+                     </font>
+                  </Label>
+                  <Button fx:id="saveButton" layoutX="582.0" layoutY="454.0" mnemonicParsing="false" onAction="#savePost" prefHeight="54.0" prefWidth="148.0" text="İlanı Kaydet">
+                     <font>
+                        <Font size="20.0" />
+                     </font>
+                  </Button>
+                  <TextField fx:id="villageText" layoutX="73.0" layoutY="79.0" prefHeight="26.0" prefWidth="139.0" />
+                  <Button fx:id="imageButton" layoutX="588.0" layoutY="191.0" mnemonicParsing="false" onAction="#imageButtonAction" text="Fotoğraf Yükle" />
+                  <ImageView fx:id="postImage" fitHeight="155.0" fitWidth="234.0" layoutX="518.0" layoutY="23.0" pickOnBounds="true" preserveRatio="true" />
+               </children></AnchorPane>
+      </content>
+    </Tab>
+      <Tab onSelectionChanged="#clearButtonAction" text="Ev Sorgulama">
+        <content>
+          <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="180.0" prefWidth="200.0">
+               <children>
+                  <TableView fx:id="queryTable" layoutX="12.0" layoutY="69.0" prefHeight="463.0" prefWidth="777.0">
+                     <columns>
+                        <TableColumn fx:id="yearColumn" prefWidth="78.39999103546143" text="Yaş" />
+                        <TableColumn fx:id="heatupColumn" prefWidth="78.39996337890625" text="Isınma" />
+                        <TableColumn fx:id="roomColumn" prefWidth="66.4000244140625" text="Oda Sayısı" />
+                        <TableColumn fx:id="volumeColumn" prefWidth="68.79998779296875" text="Alan" />
+                        <TableColumn fx:id="typeColumn" prefWidth="86.39996337890625" text="İlan Türü" />
+                        <TableColumn fx:id="villageColumn" prefWidth="105.5999755859375" text="İlçe" />
+                        <TableColumn fx:id="cityColumn" prefWidth="85.5999755859375" text="İl" />
+                        <TableColumn fx:id="priceColumn" prefWidth="77.5999755859375" text="Fiyat" />
+                        <TableColumn fx:id="imageColumn" prefWidth="133.5999755859375" text="Fotoğraf" />
+                     </columns>
+                  </TableView>
+                  <Label layoutX="34.0" layoutY="28.0" text="Şehre Göre Sorgula" />
+                  <ComboBox fx:id="city2Combo" layoutX="177.0" layoutY="24.0" prefWidth="150.0" />
+                  <Button fx:id="queryButton" layoutX="369.0" layoutY="24.0" mnemonicParsing="false" onAction="#queryButtonAction" text="Sorgula" />
+                  <Button fx:id="clearFilterButton" layoutX="529.0" layoutY="24.0" mnemonicParsing="false" onAction="#clearButtonAction" text="Filtreyi Temizle" />
+               </children>
+            </AnchorPane>
+        </content>
+      </Tab>
+    <Tab onSelectionChanged="#clearButtonAction" text="Ev Listeleme">
+      <content>
+        <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="392.0" prefWidth="626.0">
+               <children>
+                  <TableView fx:id="listTable" layoutY="22.0" prefHeight="461.0" prefWidth="790.0">
+                    <columns>
+                      <TableColumn fx:id="year2Column" prefWidth="60.79998779296875" text="Yaş" />
+                      <TableColumn fx:id="heat2Column" prefWidth="96.79995727539062" text="Isınma" />
+                        <TableColumn fx:id="room2Column" prefWidth="81.60003662109375" text="Oda Sayısı" />
+                        <TableColumn fx:id="volume2Column" prefWidth="61.5999755859375" text="Alan" />
+                        <TableColumn fx:id="type2Column" prefWidth="81.60003662109375" text="İlan Türü" />
+                        <TableColumn fx:id="village2Column" prefWidth="99.199951171875" text="İlçe" />
+                        <TableColumn fx:id="city2Column" prefWidth="99.2000732421875" text="İl" />
+                        <TableColumn fx:id="price2Column" text="Fiyat" />
+                        <TableColumn fx:id="image2Column" prefWidth="131.199951171875" text="Fotoğraf" />
+                    </columns>
+                  </TableView>
+                  <Button fx:id="deleteButton" layoutX="383.0" layoutY="492.0" mnemonicParsing="false" onAction="#deleteButtonAction" text="İlanı Sil" />
+               </children></AnchorPane>
+      </content>
+    </Tab>
+  </tabs>
+</TabPane>
